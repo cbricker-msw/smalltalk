@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
         this.users = this.getUsers();
     }
 
+    // Yikes, why do I have to know about AngularFire, snapshot changes, transformations, etc.?!
     private getUsersBeforeRefactoring(): Observable<User[]> {
         return this.usersService.getRef().snapshotChanges()
             .map((changes) => {
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
             });
     }
 
+    // Simple, I only have to know about my HomeService
     private getUsers(): Observable<User[]> {
         return this.homeService.getUsers();
     }
